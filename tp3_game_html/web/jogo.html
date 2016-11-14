@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jogo ASDM</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+<section id="header">
+    <div class="page-header">
+        <h1 class="center-block text-center">Jogo ASDM</h1>
+    </div>
+</section>
+
+<section id="info">
+    <div class="container">
+        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Integer id tincidunt magna. Etiam a gravida velit. Cum sociis natoque penatibus et magnis
+            dis parturient montes, nascetur ridiculus mus. Pellentesque eget placerat orci, sodales iaculis dolor. Nulla semper dui tortor, non commodo eros laoreet ut. Sed vel pretium dolor.
+            Sed at bibendum risus, vitae faucibus augue. Integer laoreet elit vel luctus tincidunt.
+        </p>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div id="iniciarContainer" class="container">
+            <p>
+                <label for="qtdeJogadores">Quantidade de Jogadores:</label>
+                <input id="qtdeJogadores" type="number" min="1" max="5" value="4" class="text-center">
+                <small>*minimo 1 máximo 5</small>
+            </p>
+            <button class="btn btn-lg btn-success" id="btIniciar">Iniciar</button>
+        </div>
+
+        <div id="areaJogo" class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-3 col-md-offset-1">
+                <canvas id="canvas" width="255" height="300"></canvas>
+                <div class="text-center">
+                    <span id="txtNomeJogador" class="text text-center"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <div class="col-sm-12">
+                    <div id="infoJogador">
+                        <span id="mensagemJogador"></span><span id="valorNecessario"></span>
+                    </div>
+                    <div class="col-sm-12">
+                        <small>Arraste os valores entre as operações matemáticas para formar as combinações</small>
+                    </div>
+                    <div id="columns">
+                        <div class="column" draggable="true" id="a">
+                            <header>A</header>
+                            <div class="painel-valor">
+                                <span id="txtValorA" class="valor"></span>
+                            </div>
+                        </div>
+
+                        <div class="operacoes" role="group" data-toggle="buttons">
+                            <label class="btn btn-primary"><input type="radio" name="operacaoA" value="+">+</label>
+                            <label class="btn btn-primary"><input type="radio" name="operacaoA" value="-">-</label>
+                            <label class="btn btn-primary"><input type="radio" name="operacaoA" value="*">*</label>
+                            <label class="btn btn-primary"><input type="radio" name="operacaoA" value="/">/</label>
+                        </div>
+
+                        <div class="column" draggable="true" id="b">
+                            <header>B</header>
+                            <div class="painel-valor">
+                                <span id="txtValorB" class="valor"></span>
+                            </div>
+                        </div>
+
+                        <div class="operacoes" role="group" data-toggle="buttons">
+                            <label class="btn btn-primary"><input type="radio" name="operacaoB" value="+">+</label>
+                            <label class="btn btn-primary"><input type="radio" name="operacaoB" value="-">-</label>
+                            <label class="btn btn-primary"><input type="radio" name="operacaoB" value="*">*</label>
+                            <label class="btn btn-primary"><input type="radio" name="operacaoB" value="/">/</label>
+                        </div>
+                        <div class="column" draggable="true" id="c">
+                            <header>C</header>
+                            <div class="painel-valor">
+                                <span id="txtValorC" class="valor"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group-vertical">
+                        <button class="btn btn-success" id="btValidar">Validar</button>
+                        <button class="btn btn-danger" id="btPassar">Passar</button>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <label for="txtResposta">Digite a fórmula para chegar ao valor necessário</label>
+                </div>
+                <div class="col-sm-11">
+                    <input type="text" id="txtResposta" class="txtRespostas" pattern="[abc]{1}[+*/-][abc]{1}[+*/-][abc]{1}" maxlength="7" required>
+                    <small>Ex: (A / B) * C</small>
+                </div>
+
+                <div class="col-sm-12">
+                    <div id="mensagens" class="alert">
+                        <span id="mensagem" class="text"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="vencedorContainer" class="container">
+            <div class="jumbotron">
+                <h1>Parabéns!</h1>
+                <h2><span id="txtJogadorVencedor"></span></h2>
+                <p></p>
+                <p>
+                    <button id="btReiniciar" class="btn btn-success btn-lg">Reiniciar</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="footer"></section>
+<script src="js/componentes/jquery-3.1.1.min.js"></script>
+<script src="js/componentes/jquery.mask.min.js"></script>
+<script src="js/componentes/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jogador.js"></script>
+<script type="text/javascript" src="js/tabuleiro.js"></script>
+<script type="text/javascript" src="js/animacao.js"></script>
+<script type="text/javascript" src="js/nivel.js"></script>
+<script type="text/javascript" src="js/jogo.js"></script>
+<script type="text/javascript" src="js/drag-and-drop.js"></script>
+</body>
+</html>
